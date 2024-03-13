@@ -1,0 +1,15 @@
+{
+  "name": "testing-course",
+  "version": "1.0.0",
+  "description": "ITS testing course 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.6.6",
+    "typescript": "^5.4.2"
+  }
+}
