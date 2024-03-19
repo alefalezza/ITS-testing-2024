@@ -4,14 +4,18 @@ describe('Osaspace', () => {
   beforeEach(() => {
     cy.viewport(1440, 900)
 
-    cy.session('login', () => {
+    cy.session('login and set language', () => {
+      // Login
       cy.visit('https://app.osaspace.it/')
       cy.get('#username').type('alessandro.falezza')
       cy.get('#password').type(password)
       cy.get('#kc-login').click()
-    })
+      cy.wait(5000)
 
-    cy.visit('https://app.osaspace.it/apps/files/')
+      // Set language
+      cy.visit('https://app.osaspace.it/settings/user')
+      cy.get('#account-setting-language').select('English (US)')
+    })
   })
 
 
@@ -22,6 +26,9 @@ describe('Osaspace', () => {
   })
 
   describe('section files', () => {
+    beforeEach(() => {
+      cy.visit('https://app.osaspace.it/apps/files/')
+    })
    
     it('contiene il menu di navigazione della sezione files', () => {
       cy.get('.app-navigation__list')
